@@ -3,31 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run Python Functions</title>
+    <title>Python Functions Website</title>
     <!-- Load Brython -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
 </head>
 <body onload="brython()">
     <h1>Run Python Functions</h1>
 
-    <!-- Input field and button for Function 1 -->
-    <div>
-        <label for="inputValue1">Enter a value for Function 1:</label>
-        <input type="text" id="inputValue1" placeholder="Enter value for function 1">
-        <button id="runFunction1Button">Run Function 1</button>
+    <!-- Dropdowns for Function 1 -->
+    <h3>Enter a list of 6 items for Function 1</h3>
+    <div id="list-inputs">
+        <!-- Dropdowns for each item in the list -->
+        <select id="listItem1">
+            <option value="">Select</option>
+            <option value="Human">Human</option>
+            <option value="Replicant">Replicant</option>
+            <option value="">(Empty)</option>
+        </select>
+        <select id="listItem2">
+            <option value="">Select</option>
+            <option value="Human">Human</option>
+            <option value="Replicant">Replicant</option>
+            <option value="">(Empty)</option>
+        </select>
+        <select id="listItem3">
+            <option value="">Select</option>
+            <option value="Human">Human</option>
+            <option value="Replicant">Replicant</option>
+            <option value="">(Empty)</option>
+        </select>
+        <select id="listItem4">
+            <option value="">Select</option>
+            <option value="Human">Human</option>
+            <option value="Replicant">Replicant</option>
+            <option value="">(Empty)</option>
+        </select>
+        <select id="listItem5">
+            <option value="">Select</option>
+            <option value="Human">Human</option>
+            <option value="Replicant">Replicant</option>
+            <option value="">(Empty)</option>
+        </select>
+        <select id="listItem6">
+            <option value="">Select</option>
+            <option value="Human">Human</option>
+            <option value="Replicant">Replicant</option>
+            <option value="">(Empty)</option>
+        </select>
     </div>
+    <button id="runFunction1Button">Run Function 1</button>
 
-    <!-- Input field and button for Function 2 -->
+    <!-- Input for Function 2 -->
+    <h3>Enter an integer for Function 2</h3>
     <div>
-        <label for="inputValue2">Enter a value for Function 2:</label>
-        <input type="text" id="inputValue2" placeholder="Enter value for function 2">
+        <label for="inputValue2">Integer value:</label>
+        <input type="text" id="inputValue2" placeholder="Enter integer for function 2">
         <button id="runFunction2Button">Run Function 2</button>
     </div>
 
-    <!-- Output for Function 1 -->
+    <!-- Output areas -->
     <div id="output1"></div>
-
-    <!-- Output for Function 2 -->
     <div id="output2"></div>
 
     <!-- Python Script using Brython -->
@@ -39,15 +74,31 @@
 
         # Define the Python function to handle Function 1
         def call_function_1(event):
-            input_value = document["inputValue1"].value
-            result = your_function_1(input_value)
+            # Get the selected values for the 6 list items
+            list_items = [
+                document["listItem1"].value,
+                document["listItem2"].value,
+                document["listItem3"].value,
+                document["listItem4"].value,
+                document["listItem5"].value,
+                document["listItem6"].value
+            ]
+            
+            # Call the Python function with the list of items
+            result = your_function_1(list_items)
             document["output1"].html = f"Result from Function 1: {result}"
 
         # Define the Python function to handle Function 2
         def call_function_2(event):
+            # Get input from the webpage
             input_value = document["inputValue2"].value
-            result = your_function_2(input_value)
-            document["output2"].html = f"Result from Function 2: {result}"
+            try:
+                # Convert string to integer
+                input_value = int(input_value)
+                result = your_function_2(input_value)
+                document["output2"].html = f"Result from Function 2: {result}"
+            except ValueError:
+                document["output2"].html = "Please enter a valid integer."
 
         # Bind the buttons to the respective Python functions
         document["runFunction1Button"].bind("click", call_function_1)
