@@ -110,7 +110,7 @@
             ]
             result = your_function_1(list_items)
             # Convert the list to a string before setting it in the output
-            document["output1"].html = "Result from Function 1: " + ", ".join(result)
+            document["output1"].html = "Result from Function 1: " + ", ".join(str(item) for item in result)
 
         # Define the Python function to handle Function 2
         def call_function_2(event):
