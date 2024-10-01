@@ -71,7 +71,7 @@ def game_sample(seed):
     print_string += f"Random seed is {original_seed}\n"
     print_string += "---\n"
 
-    print(print_string)
+    return(print_string)
 
 # SEED = 20
 game_sample(20)
@@ -100,5 +100,19 @@ def find_seeds(rep_vector):
         START_SEED += 1
     return seed_list
 
-rep_vector = ["Replicant", "Replicant", "Human" ,"Human", "Replicant", "Human"]
-print(find_seeds(rep_vector))
+rep_vector = ["Replicant", "Replicant", "Human" ,"Human", "Replicant", "Replicant"]
+# print(find_seeds(rep_vector))
+
+
+
+## necessary for Brython
+
+def your_function_1(input_value):
+    # Example logic for function 1
+    return find_seeds(input_value)
+    # return f"Function 1 received {input_value}"
+
+def your_function_2(input_value):
+    # Example logic for function 2
+    return game_sample(input_value)
+    # return f"Function 2 received {input_value}"
