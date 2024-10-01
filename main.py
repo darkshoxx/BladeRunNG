@@ -1,5 +1,3 @@
-from random import random
-import math
 import copy
 UINT_MAX = 4294967295
 DEADBEEF = 3735928579
@@ -8,8 +6,11 @@ def scramble_seed()->None:
     """replicates the function 'scrambleSeed' from scummvm/common/random.cpp"""
     global SEED
     SEED ^= SEED >> 13
+    SEED = SEED % (2**32)
     SEED ^= SEED << 21
+    SEED = SEED % (2**32)
     SEED ^= SEED >> 11
+    SEED = SEED % (2**32)
 
 
 def get_random_number(max:int)->int:
@@ -29,13 +30,12 @@ def random_query(min: int, max:int):
         return get_random_number_RNG(max, min)
     return get_random_number_RNG(min,max)
 
-SEED = math.floor(random()*100000000)
-SEED = 2489215585
+# SEED = math.floor(random()*100000000)
+# SEED = 2489215585
 # SEED = 2492033534
 # SEED = 2493309379
 # SEED = 2497825187
-original_seed = copy.copy(SEED)
-print(random_query(1,2))
+
 # my own helper 
 def get_replic():
     val = random_query(1,2)
@@ -43,8 +43,11 @@ def get_replic():
         return "Replicant"
     return "Human"
 
-def game_sample():
+def game_sample(seed):
+    global SEED
+    SEED = seed
     ## Izo, Gordo, Lucy, Dektora, Sadik, Luther
+    original_seed = copy.copy(SEED)
     var_izo = get_replic()
     var_gor = get_replic()
     var_luc = get_replic()
@@ -70,27 +73,32 @@ def game_sample():
 
     print(print_string)
 
-SEED = 2489215585
-rep_vector = ["Human", "Replicant", "Human" ,"Replicant", "Human", "Human"]
-replic_list = []
+# SEED = 20
+game_sample(20)
+def find_seeds(rep_vector):
+    seed_found = False
+    seed_list = []
+    global SEED
+    START_SEED = 1
+    while not seed_found:
 
-for _ in range(100):
-    replic_list.append(get_replic())
+        SEED = copy.copy(START_SEED)
+        replic_list = []
 
-print(replic_list)
-for index in range(100):
-    if rep_vector == replic_list[index:(index+len(rep_vector))]:
-        print(index)
-# 21
-# print(replic_list[21:(21+len(rep_vector))])
-SEED = 2492033534
-rep_vector = ["Replicant", "Replicant", "Human" ,"Replicant", "Replicant", "Human"]
-replic_list = []
+        for _ in range(6):
+            replic_list.append(get_replic())
+        valid_config = True
+        for index in range(6):
+            if rep_vector[index]:
+                if rep_vector[index] != replic_list[index]:
+                    valid_config= False
+        if valid_config:
+            seed_list.append(START_SEED)
+            if START_SEED>10000:
+                seed_found = True
 
-for _ in range(100):
-    replic_list.append(get_replic())
+        START_SEED += 1
+    return seed_list
 
-print(replic_list)
-for index in range(100):
-    if rep_vector == replic_list[index:(index+len(rep_vector))]:
-        print(index)
+rep_vector = ["Replicant", "Replicant", "Human" ,"Human", "Replicant", "Human"]
+print(find_seeds(rep_vector))
