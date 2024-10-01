@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Functions Website</title>
+    <!-- Load Brython -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
 </head>
 <body onload="brython()">
@@ -12,15 +13,17 @@
     <!-- Input field for your function -->
     <label for="inputValue">Enter a value:</label>
     <input type="text" id="inputValue" placeholder="Enter a value">
-    <button onclick="callPythonFunction()">Run Function</button>
+    <button id="runFunctionButton">Run Function</button>
 
     <!-- Output will appear here -->
     <div id="output"></div>
 
+    <!-- The script must use Python -->
     <script type="text/python">
-        from browser import document, alert
+        from browser import document, window
         from main import your_function_1, your_function_2
 
+        # Define the Python function to handle the button click
         def call_python_function(event):
             # Get input from the webpage
             input_value = document["inputValue"].value
@@ -32,8 +35,8 @@
             # Display results on the webpage
             document["output"].html = f"Result 1: {result1}<br>Result 2: {result2}"
 
-        # Attach Python function to button click
-        document["output"].bind("click", call_python_function)
+        # Bind the button click to the Python function
+        document["runFunctionButton"].bind("click", call_python_function)
     </script>
 </body>
 </html>
