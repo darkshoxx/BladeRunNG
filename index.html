@@ -4,66 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Functions Website</title>
+    <!-- Load Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaI6mF8MmbLf8Cdyw8r0sYhfLw+3S9DkLf8KjtMZQa2F5Dnh8QSPF7kzZ+" crossorigin="anonymous">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
     <!-- Load Brython -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
 </head>
 <body onload="brython()">
-    <h1>Run Python Functions</h1>
+    <div class="container my-5">
+        <h1 class="text-center">Python Functions Website</h1>
 
-    <!-- Dropdowns for Function 1 -->
-    <h3>Enter a list of 6 items for Function 1</h3>
-    <div id="list-inputs">
-        <!-- Dropdowns for each item in the list -->
-        <select id="listItem1">
-            <option value="">Select</option>
-            <option value="Human">Human</option>
-            <option value="Replicant">Replicant</option>
-            <option value="">(Empty)</option>
-        </select>
-        <select id="listItem2">
-            <option value="">Select</option>
-            <option value="Human">Human</option>
-            <option value="Replicant">Replicant</option>
-            <option value="">(Empty)</option>
-        </select>
-        <select id="listItem3">
-            <option value="">Select</option>
-            <option value="Human">Human</option>
-            <option value="Replicant">Replicant</option>
-            <option value="">(Empty)</option>
-        </select>
-        <select id="listItem4">
-            <option value="">Select</option>
-            <option value="Human">Human</option>
-            <option value="Replicant">Replicant</option>
-            <option value="">(Empty)</option>
-        </select>
-        <select id="listItem5">
-            <option value="">Select</option>
-            <option value="Human">Human</option>
-            <option value="Replicant">Replicant</option>
-            <option value="">(Empty)</option>
-        </select>
-        <select id="listItem6">
-            <option value="">Select</option>
-            <option value="Human">Human</option>
-            <option value="Replicant">Replicant</option>
-            <option value="">(Empty)</option>
-        </select>
+        <!-- Section for Function 1 -->
+        <div class="card my-4 p-3 shadow-sm">
+            <h3 class="card-title">Function 1: Select List Items</h3>
+            <p>Select 6 items for the list (Human, Replicant, or empty).</p>
+            <div id="list-inputs" class="row">
+                <!-- Dropdowns for each item in the list -->
+                <div class="col-md-2">
+                    <select id="listItem1" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="listItem2" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="listItem3" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="listItem4" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="listItem5" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="listItem6" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+            </div>
+            <button id="runFunction1Button" class="btn btn-primary mt-2">Run Function 1</button>
+            <div id="output1" class="mt-3 text-info"></div>
+        </div>
+
+        <!-- Section for Function 2 -->
+        <div class="card my-4 p-3 shadow-sm">
+            <h3 class="card-title">Function 2: Enter Integer Value</h3>
+            <div class="input-group mb-3">
+                <input type="text" id="inputValue2" class="form-control" placeholder="Enter integer for function 2">
+                <button id="runFunction2Button" class="btn btn-primary">Run Function 2</button>
+            </div>
+            <div id="output2" class="text-info"></div>
+        </div>
     </div>
-    <button id="runFunction1Button">Run Function 1</button>
-
-    <!-- Input for Function 2 -->
-    <h3>Enter an integer for Function 2</h3>
-    <div>
-        <label for="inputValue2">Integer value:</label>
-        <input type="text" id="inputValue2" placeholder="Enter integer for function 2">
-        <button id="runFunction2Button">Run Function 2</button>
-    </div>
-
-    <!-- Output areas -->
-    <div id="output1"></div>
-    <div id="output2"></div>
 
     <!-- Python Script using Brython -->
     <script type="text/python">
@@ -74,7 +94,6 @@
 
         # Define the Python function to handle Function 1
         def call_function_1(event):
-            # Get the selected values for the 6 list items
             list_items = [
                 document["listItem1"].value,
                 document["listItem2"].value,
@@ -83,17 +102,13 @@
                 document["listItem5"].value,
                 document["listItem6"].value
             ]
-            
-            # Call the Python function with the list of items
             result = your_function_1(list_items)
             document["output1"].html = f"Result from Function 1: {result}"
 
         # Define the Python function to handle Function 2
         def call_function_2(event):
-            # Get input from the webpage
             input_value = document["inputValue2"].value
             try:
-                # Convert string to integer
                 input_value = int(input_value)
                 result = your_function_2(input_value)
                 document["output2"].html = f"Result from Function 2: {result}"

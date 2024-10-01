@@ -1,0 +1,56 @@
+/* Center the heading */
+h1 {
+    color: #343a40;
+    font-size: 3rem;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 10px;
+    background-color: #f8f9fa;
+}
+
+.card-title {
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Style output text */
+.text-info {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #17a2b8;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Add spacing between inputs and sections */
+.mb-2 {
+    margin-bottom: 10px;
+}
+
+.mt-3 {
+    margin-top: 20px;
+}
+
+.my-4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Padding and Shadow */
+.p-3 {
+    padding: 20px;
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
