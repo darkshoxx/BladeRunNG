@@ -109,7 +109,8 @@
                 document["listItem6"].value
             ]
             result = your_function_1(list_items)
-            document["output1"].html = "Result from Function 1: " + result
+            # Convert the list to a string before setting it in the output
+            document["output1"].html = "Result from Function 1: " + ", ".join(result)
 
         # Define the Python function to handle Function 2
         def call_function_2(event):
