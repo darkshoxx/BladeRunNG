@@ -1,4 +1,3 @@
-import copy
 UINT_MAX = 4294967295
 DEADBEEF = 3735928579
 
@@ -47,7 +46,7 @@ def game_sample(seed):
     global SEED
     SEED = seed
     ## Izo, Gordo, Lucy, Dektora, Sadik, Luther
-    original_seed = copy.copy(SEED)
+    original_seed = SEED
     var_izo = get_replic()
     var_gor = get_replic()
     var_luc = get_replic()
@@ -74,7 +73,7 @@ def game_sample(seed):
     return(print_string)
 
 # SEED = 20
-game_sample(20)
+# print(game_sample(20))
 def find_seeds(rep_vector):
     seed_found = False
     seed_list = []
@@ -82,7 +81,7 @@ def find_seeds(rep_vector):
     START_SEED = 1
     while not seed_found:
 
-        SEED = copy.copy(START_SEED)
+        SEED = START_SEED
         replic_list = []
 
         for _ in range(6):
