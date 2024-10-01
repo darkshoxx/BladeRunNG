@@ -9,55 +9,82 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
 </head>
 <body onload="brython()">
-    <div class="container">
-        <h1 class="mt-4">Blade Runner Seed Searcher</h1>
-        <div class="function mt-4">
-            <h2>Find Seeds</h2>
-            <label for="listItem1">Izo:</label>
-            <select id="listItem1" class="form-control mb-2">
-                <option value="Human">Human</option>
-                <option value="Replicant">Replicant</option>
-                <option value="">Empty</option>
-            </select>
-            <label for="listItem2">Gordo:</label>
-            <select id="listItem2" class="form-control mb-2">
-                <option value="Human">Human</option>
-                <option value="Replicant">Replicant</option>
-                <option value="">Empty</option>
-            </select>
-            <label for="listItem3">Lucy:</label>
-            <select id="listItem3" class="form-control mb-2">
-                <option value="Human">Human</option>
-                <option value="Replicant">Replicant</option>
-                <option value="">Empty</option>
-            </select>
-            <label for="listItem4">Dektora:</label>
-            <select id="listItem4" class="form-control mb-2">
-                <option value="Human">Human</option>
-                <option value="Replicant">Replicant</option>
-                <option value="">Empty</option>
-            </select>
-            <label for="listItem5">Sadik:</label>
-            <select id="listItem5" class="form-control mb-2">
-                <option value="Human">Human</option>
-                <option value="Replicant">Replicant</option>
-                <option value="">Empty</option>
-            </select>
-            <label for="listItem6">Luther/Lance:</label>
-            <select id="listItem6" class="form-control mb-2">
-                <option value="Human">Human</option>
-                <option value="Replicant">Replicant</option>
-                <option value="">Empty</option>
-            </select>
-            <button id="runFunction1Button" class="btn btn-primary">Find Seeds</button>
-            <div id="output1" class="mt-3"></div>
+    <div class="container my-5">
+        <h1 class="text-center">Blade Runner Seed Searcher</h1>
+
+        <!-- Section for Function 1 -->
+        <div class="card my-4 p-3 shadow-sm">
+            <h3 class="card-title">Find Seeds</h3>
+            <p>Select 6 items for the list (Human, Replicant, or empty).</p>
+            <div id="list-inputs" class="row">
+                <!-- Dropdowns for each item in the list -->
+                <div class="col-md-2">
+                    <label for="listItem1">Izo</label>
+                    <select id="listItem1" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="listItem2">Gordo</label>
+                    <select id="listItem2" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="listItem3">Lucy</label>
+                    <select id="listItem3" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="listItem4">Dektora</label>
+                    <select id="listItem4" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="listItem5">Sadik</label>
+                    <select id="listItem5" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="listItem6">Luther/Lance</label>
+                    <select id="listItem6" class="form-select mb-2">
+                        <option value="">Select</option>
+                        <option value="Human">Human</option>
+                        <option value="Replicant">Replicant</option>
+                        <option value="">(Empty)</option>
+                    </select>
+                </div>
+            </div>
+            <button id="runFunction1Button" class="btn btn-primary mt-2">Run Function 1</button>
+            <div id="output1" class="mt-3 text-info"></div>
         </div>
-        <div class="function mt-4">
-            <h2>Generate from Seed</h2>
-            <label for="inputValue2">Enter Seed:</label>
-            <input type="text" id="inputValue2" placeholder="Enter Seed" class="form-control mb-2">
-            <button id="runFunction2Button" class="btn btn-primary">Generate from Seed</button>
-            <div id="output2" class="mt-3"></div>
+
+        <!-- Section for Function 2 -->
+        <div class="card my-4 p-3 shadow-sm">
+            <h3 class="card-title">Generate from Seed</h3>
+            <div class="input-group mb-3">
+                <input type="text" id="inputValue2" class="form-control" placeholder="Enter Seed">
+                <button id="runFunction2Button" class="btn btn-primary">Run Function 2</button>
+            </div>
+            <div id="output2" class="text-info"></div>
         </div>
     </div>
 
