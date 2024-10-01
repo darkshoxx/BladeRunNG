@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blade Runner Seed Searcher</title>
     <!-- Load Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaI6mF8MmbLf8Cdyw8r0sYhfLw+3S9DkLf8KjtMZQa2F5Dnh8QSPF7kzZ+" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
     <!-- Load Brython -->
@@ -109,7 +109,7 @@
                 document["listItem6"].value
             ]
             result = your_function_1(list_items)
-            document["output1"].html = f"Result from Function 1: {result}"
+            document["output1"].html = "Result from Function 1: " + result
 
         # Define the Python function to handle Function 2
         def call_function_2(event):
@@ -118,7 +118,7 @@
                 input_value = int(input_value)
                 result = your_function_2(input_value)
                 # Convert line breaks to HTML line breaks
-                document["output2"].html = f"Result from Function 2: {result.replace('\n', '<br>')}"
+                document["output2"].html = "Result from Function 2: " + result.replace('\n', '<br>')
             except ValueError:
                 document["output2"].html = "Please enter a valid integer."
 

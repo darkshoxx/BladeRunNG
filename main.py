@@ -45,7 +45,7 @@ def get_replic():
 def game_sample(seed):
     global SEED
     SEED = seed
-    ## Izo, Gordo, Lucy, Dektora, Sadik, Luther
+    ## Izo, Gordo, Lucy, Dektora, Sadik, Luther/Lance
     original_seed = SEED
     var_izo = get_replic()
     var_gor = get_replic()
