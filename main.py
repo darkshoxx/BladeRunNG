@@ -57,8 +57,8 @@ def game_sample(seed):
     if var_gor == "Human" and var_luc == "Human" and var_dek == "Human":
         var_dek = "Replicant"
 
-    print_string = "---\n"
-    print_string += "Note: I have no fekkin clue about the mode\n"
+    print_string = "\n---\n"
+    print_string += "Note: No info about the mode\n"
     print_string += "---\n"
     print_string += f"Izo is a {var_izo} \n"
     print_string += f"Gordo is a {var_gor} \n"
