@@ -93,7 +93,7 @@ def find_seeds(rep_vector):
                     valid_config= False
         if valid_config:
             seed_list.append(START_SEED)
-            if START_SEED>10000:
+            if START_SEED>2999:
                 seed_found = True
 
         START_SEED += 1
